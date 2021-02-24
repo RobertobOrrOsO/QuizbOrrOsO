@@ -11,7 +11,7 @@ const questions =[
 },
 {
     q: "¿Cuál de los siguientes edificios no fue construido por Antoni Gaudí?",
-    a: ["Casa Batlló / Barcelona", "Palacio Episcopal / Astorga, León", "Casa Ximenis / Tarragona", "Sangrada Familia / Barcelona"],
+    a: ["Casa Batlló (Barcelona)", "Palacio Episcopal (Astorga, León)", "Casa Ximenis (Tarragona)", "Sangrada Familia (Barcelona)"],
     ok: 2,
 },
 {
@@ -68,10 +68,10 @@ const printQuestion = ( oneQuestion ) =>{
                 if( j === oneQuestion.ok){
                     labelAnswer.setAttribute("class", "answerOk");
                     setTimeout(() => {
-                        borrarQuestion(contenedor); //Borra la pregunta y la envía al contenedor
+                        borrarQuestion(contenedor);
                     }, 500);
                     setTimeout(() => {
-                        printQuestion(questions[++i]); //Tras borrar pinta la nuecva pregunta
+                        printQuestion(questions[++i]);
                     }, 700);
                 }
                 else{
