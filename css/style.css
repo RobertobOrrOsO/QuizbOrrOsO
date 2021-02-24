@@ -1,34 +1,56 @@
 body{
     display: flex;
     justify-content: center;
-
+    align-items: center;
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+.welcome{
+    background-color: rgba(81, 106, 70, 0.083);
+    width: 100%;
+    height: auto;
+    padding: 2%;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 2000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .container{
-    padding: 1%;
+    padding: 2%;
     box-sizing: border-box;
     font-family: 'Roboto Mono', monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 80px;
+    vertical-align: middle;
 }
-
 .question{
     font-size: 2.0em;
     line-height: 1.2em;
     margin-top: 15px;
     margin-bottom: 25px;
-    letter-spacing: -0.08em;
+    letter-spacing: -0.05em;
     color: #67dd38;
+    animation: deslizamiento 1.0s;
 }
-
-/* .answers{
-    width: 80%;
-    font-size: 1.0em;
-    color: white;
-} */
-
+.boton{
+    font-size: 1.7em;
+    line-height: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-weight: 900;
+    color: #353535;
+    text-decoration: none;
+}
 .answer{
     width: 80%;
     font-weight: 900;
@@ -37,11 +59,11 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     background-color: #d6d2d2;
     margin-bottom: 10px;
+    /* animation: deslizamiento 1.0s; */
 }
-
 .answerOk{
     width: 80%;
     font-weight: 900;
@@ -49,12 +71,11 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     background-color: #d6d2d2;
     margin-bottom: 10px;
     color: #67dd38;
 }
-
 .answerKo{
     width: 80%;
     font-weight: 900;
@@ -62,16 +83,22 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     background-color: #d6d2d2;
     margin-bottom: 10px;
     color: #f30606;
 }
-
 .input{
     display: none;
 }
-
+@keyframes deslizamiento {
+    0%{
+        transform: translateY(70%)
+    }
+    100%{
+        transform: translateY(0%)
+    }
+}
 @media screen and (min-width: 768px){
     .container{
         width: 75%;
@@ -79,12 +106,12 @@ body{
     .question{
         width: 65%;
     }
-    /* .answers{
+    .answers{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-content: center;
-    } */
+    }
     .answer, .answerOk, .answerKo{
         margin-bottom: 20px;
         padding: 20px;

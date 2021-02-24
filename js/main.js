@@ -26,195 +26,88 @@ const questions =[
 }
 ]
 
-// let questions = [
-// {   title: "¿De qué arquitecto es obra el museo Guggenheim de Bilbao?",
-//     correctAnsw: 1,  
-//     answ: [
-//         {
-//             label: "Peter Behrens",
-//             id: "peter-behrens",
-//             name: "arquitecto",
-//             value: "peter-behrens",
-//         },
-//         {
-//             label: "Frank Gehry",
-//             id: "frank-gehry",
-//             name: "arquitecto",
-//             value: "frank-gehry",
-//         },
-//         {
-//             label: "Santiago Calatrava",
-//             id: "santiago-calatrava",
-//             name: "arquitecto",
-//             value: "santiago-calatrava",
-//         },
-//         {
-//             label: "Frank Lloyd Wright",
-//             id: "frank-lloyd-wright",
-//             name: "arquitecto",
-//             value: "tita-novoa",
-//         },
-//     ]
-// },
-// {   title: "¿Dónde nació el arquitecto Ludwig Mies van der Rohe?" ,
-//     correctAnsw: 2,  
-//     answ: [
-//         {
-//             label: "Holanda",
-//             id: "holanda",
-//             name: "pais",
-//             value: "holanda",
-//         },
-//         {
-//             label: "Francia",
-//             id: "francia",
-//             name: "pais",
-//             value: "francia",
-//         },
-//         {
-//             label: "Alemania",
-//             id: "alemania",
-//             name: "pais",
-//             value: "alemania",
-//         },
-//         {
-//             label: "Austria",
-//             id: "austria",
-//             name: "pais",
-//             value: "austria",
-//         },
-//     ]
-// },
-// {   title: "¿Cuál de los siguientes edificios no fue construido por Antoni Gaudí?" ,
-//     correctAnsw: 2,  
-//     answ: [
-//         {
-//             label: "Casa Batlló (Barcelona)",
-//             id: "casa-batllo",
-//             name: "edificio",
-//             value: "casa-batllo",
-//         },
-//         {
-//             label: "Palacio Episcopal (Astorga)",
-//             id: "palacio-episcopal",
-//             name: "edificio",
-//             value: "palacio-episcopal",
-//         },
-//         {
-//             label: "Casa Ximenis (Tarragona)",
-//             id: "casa-ximenis",
-//             name: "edificio",
-//             value: "casa-ximenis",
-//         },
-//         {
-//             label: "Sagrada Familia (Barcelona)",
-//             id: "sagrada-familia",
-//             name: "edificio",
-//             value: "sagrada-familia",
-//         },
-//     ]
-// },
-// {   title: "¿Qué famoso arquitecto construyó la Casa de la Cascada?" ,
-//     correctAnsw: 0,  
-//     answ: [
-//         {
-//             label: "Frank Lloyd Wright",
-//             id: "frank-lloyd-wright",
-//             name: "arquitecto",
-//             value: "frank-lloyd-wright",
-//         },
-//         {
-//             label: "Robert Venturi",
-//             id: "robert-venturi",
-//             name: "arquitecto",
-//             value: "robert-venturi",
-//         },
-//         {
-//             label: "Mario Botta",
-//             id: "mario-botta",
-//             name: "arquitecto",
-//             value: "mario-botta",
-//         },
-//         {
-//             label: "Álvaro Siza",
-//             id: "alvaro-siza",
-//             name: "arquitecto",
-//             value: "alvaro-siza",
-//         },
-//     ]
-// },
-// {   title: "¿Quién fue el arquitecto que diseñó las Torres Gemelas de Nueva York?" ,
-//     correctAnsw: 0,  
-//     answ: [
-//         {
-//             label: "Minoru Yamasaki",
-//             id: "minoru-yamasaki",
-//             name: "arquitecto",
-//             value: "minoru-yamasaki",
-//         },
-//         {
-//             label: "Arata Isozaki",
-//             id: "arata-isozaki",
-//             name: "arquitecto",
-//             value: "arata-isozaki",
-//         },
-//         {
-//             label: "Fumihiko Maki",
-//             id: "fumihiko-maki",
-//             name: "arquitecto",
-//             value: "fumihiko-maki",
-//         },
-//         {
-//             label: "Zaha Hadid",
-//             id: "zaha-hadid",
-//             name: "arquitecto",
-//             value: "zaha-hadid",
-//         },
-//     ]
-// }
-// ];
-
 const father = document.getElementById("father");
 
 let i = 0;
 
+let contenedor = []; //Array vacío donde poner los p, label e input creados
+
 const printQuestion = ( oneQuestion ) =>{
-    let pQuestion = document.createElement("p");
-    pQuestion.textContent = oneQuestion.q;
-    pQuestion.setAttribute("class", "question");
-    father.appendChild(pQuestion);
+    if (i < questions.length) {
 
-    for (let j = 0; j < oneQuestion.a.length; j++){
-        let labelAnswer = document.createElement("label");
-        labelAnswer.textContent = oneQuestion.a[j];
-        labelAnswer.setAttribute("for", "boton" + [i] + [j]);
-        labelAnswer.setAttribute("class", "answer");
-        father.appendChild(labelAnswer);
+        let pQuestion = document.createElement("p");
+        pQuestion.textContent = oneQuestion.q;
+        pQuestion.setAttribute("class", "question");
+        father.appendChild(pQuestion);
 
-        let inputAnswer = document.createElement("input");
-        inputAnswer.textContent = oneQuestion.a[j];
-        inputAnswer.setAttribute("type", "radio");
-        // inputAnswer.setAttribute("name", "name" + [i]);
-        // inputAnswer.setAttribute("value", [i]+[j]);
-        inputAnswer.setAttribute("id", "boton" + [i] + [j]); //Tiene que coincidir con el valor "for" de label
-        inputAnswer.setAttribute("class", "answer");
-        inputAnswer.setAttribute("class", "input");
+        contenedor.push(pQuestion);
 
-        father.appendChild(inputAnswer);
+        for (let j = 0; j < oneQuestion.a.length; j++){
 
-        labelAnswer.addEventListener("click", () => {
-            if( j === oneQuestion.ok){
-                labelAnswer.setAttribute("class", "answerOk");
-                // pQuestion.replaceChild();
-                printQuestion(questions[++i]);
-            }
-            else{
-                labelAnswer.setAttribute("class", "answerKo");
-            }
-        })
+            let labelAnswer = document.createElement("label");
+            labelAnswer.textContent = oneQuestion.a[j];
+            labelAnswer.setAttribute("for", "boton" + [i] + [j]);
+            labelAnswer.setAttribute("class", "answer");
+            father.appendChild(labelAnswer);
+
+            contenedor.push(labelAnswer);
+
+            let inputAnswer = document.createElement("input");
+            inputAnswer.textContent = oneQuestion.a[j];
+            inputAnswer.setAttribute("type", "radio");
+            // inputAnswer.setAttribute("name", "name" + [i]);
+            // inputAnswer.setAttribute("value", [i]+[j]);
+            inputAnswer.setAttribute("id", "boton" + [i] + [j]); //Tiene que coincidir con el valor "for" de label
+            inputAnswer.setAttribute("class", "answer");
+            inputAnswer.setAttribute("class", "input");
+            father.appendChild(inputAnswer);
+
+            contenedor.push(inputAnswer);
+
+            labelAnswer.addEventListener("click", () => {
+                if( j === oneQuestion.ok){
+                    labelAnswer.setAttribute("class", "answerOk");
+                    setTimeout(() => {
+                        borrarQuestion(contenedor); //Borra la pregunta y la envía al contenedor
+                    }, 500);
+                    setTimeout(() => {
+                        printQuestion(questions[++i]); //Tras borrar pinta la nuecva pregunta
+                    }, 700);
+                }
+                else{
+                    setTimeout(() => {
+                        labelAnswer.setAttribute("class", "answerKo");
+                    }, 500);
+                    setTimeout(() => {
+                        labelAnswer.setAttribute("class", "answer");
+                    }, 2000);
+                }
+            })
+        }
+
+    }else{
+        let finalText = document.createElement("p");
+        finalText.textContent = "¡Bravo!, este test es bastante sencillo y aunque con él no ganamos nada, al menos hemos aprendido un poquito de la historia de la arquitectura.";
+        finalText.setAttribute("class", "question");
+        father.appendChild(finalText);
+
+        let botonInicio = document.createElement("a")
+            botonInicio.textContent = "Inicio";
+            botonInicio.setAttribute("class", "boton");
+            botonInicio.setAttribute("href", "index.html")
+            father.appendChild(botonInicio);
+        }
+}
+
+printQuestion(questions[i]);
+
+function borrarQuestion (contenedor){
+    for (let i = 0; i < contenedor.length; i++) {
+    contenedor[i].remove()
     }
 }
-printQuestion(questions[i]);
+
+
 
 
 
