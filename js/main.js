@@ -11,7 +11,7 @@ const questions =[
 },
 {
     q: "¿Cuál de los siguientes edificios no fue construido por Antoni Gaudí?",
-    a: ["Casa Batlló (Barcelona)", "Palacio Episcopal (Astorga, León)", "Casa Ximenis (Tarragona)", "Sangrada Familia (Barcelona)"],
+    a: ["Casa Batlló / Barcelona", "Palacio Episcopal / Astorga, León", "Casa Ximenis / Tarragona", "Sangrada Familia / Barcelona"],
     ok: 2,
 },
 {
@@ -80,7 +80,7 @@ const printQuestion = ( oneQuestion ) =>{
                     }, 500);
                     setTimeout(() => {
                         labelAnswer.setAttribute("class", "answer");
-                    }, 2000);
+                    }, 1500);
                 }
             })
         }
@@ -106,42 +106,3 @@ function borrarQuestion (contenedor){
     contenedor[i].remove()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-// const createDivQuestion = ( ) =>{
-//     for (let i = 0; i < questions.length; i++){
-//         let divQuestion = document.createElement("p");
-//         divQuestion.textContent = (questions[i].q);
-//         divQuestion.setAttribute("class", "question");
-//         father.appendChild(divQuestion);
-
-//         for (let j = 0; j < questions[i].a.length; j++){
-//             let labelAnswer = document.createElement("label");
-//             labelAnswer.textContent = (questions[i].a[j]);
-//             labelAnswer.setAttribute("for", "boton" + [i] + [j]);
-//             labelAnswer.setAttribute("class", "answer");
-//             father.appendChild(labelAnswer);
-
-//             let inputAnswer = document.createElement("input");
-//             inputAnswer.textContent = (questions[i].a[j]);
-//             inputAnswer.setAttribute("type", "radio");
-//             inputAnswer.setAttribute("name", "name" + [i]);
-//             inputAnswer.setAttribute("value", [i]+[j]);
-//             inputAnswer.setAttribute("id", "boton" + [i] + [j]); //Tiene que coincidir con el valor "for" de label
-//             inputAnswer.setAttribute("class", "answer");
-//             father.appendChild(inputAnswer);
-//         }
-//     }
-
-// }
-
-// let j = 0;
