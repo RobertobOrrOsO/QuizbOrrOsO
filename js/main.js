@@ -1,31 +1,3 @@
-const questions =[ 
-{
-    q: "¿De qué arquitecto es obra el museo Guggenheim de Bilbao?",
-    a: ["Peter Behrens", "Frank Gehry", "Santiago Calatrava", "Frank Lloyd Wright"],
-    ok: 1,
-},
-{
-    q: "¿Dónde nació el arquitecto Ludwig Mies van der Rohe?",
-    a: ["Holanda", "Francia", "Alemania", "Austria"],
-    ok: 2,
-},
-{
-    q: "¿Cuál de los siguientes edificios no fue construido por Antoni Gaudí?",
-    a: ["Casa Batlló (Barcelona)", "Palacio Episcopal (Astorga, León)", "Casa Ximenis (Tarragona)", "Sangrada Familia (Barcelona)"],
-    ok: 2,
-},
-{
-    q: "¿Qué famoso arquitecto construyó la Casa de la Cascada?",
-    a: ["Frank Lloyd Wright", "Robert Venturi", "Mario Botta", "Álvaro Siza"],
-    ok: 0,
-},
-{
-    q: "¿Quién fue el arquitecto que diseñó las Torres Gemelas de Nueva York?",
-    a: ["Arata Isozaki", "Fumihiko Maki", "Zaha Hadid", "Minoru Yamasaki"],
-    ok: 3,
-}
-]
-
 const father = document.getElementById("father");
 
 let i = 0;

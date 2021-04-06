@@ -18,6 +18,7 @@ body{
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    width: 100%;
 }
 .container{
     padding: 5%;
@@ -52,7 +53,7 @@ body{
     font-size: 1.3em;
     line-height: 1.2em;
     margin-top: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     font-weight: 900;
     color: #353535;
     text-decoration: none;
@@ -71,6 +72,7 @@ body{
     background-color: #d6d2d2;
     margin-bottom: 15px;
     animation: degradado 1.5s;
+    border: none;
 }
 .answerOk{
     width: 80%;
